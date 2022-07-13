@@ -1,0 +1,248 @@
+{% extends 'base.html' %}{%load static%} {% block content %}
+<style>
+
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title" style="text-align:center">Previous Leads</h4>
+        <form>
+            <div class="input-group input-group-sm mb-3">
+                <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search" title="Type in a name" style="color:rgb(7, 6, 6);">
+            </div>
+        </form>
+        </p>
+        <div class="table-responsive">
+            <table class="table" id="fixedheight">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Contact
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Counciler
+                        </th>
+                        <th>
+                            Document Collector
+                        </th>
+                        <th>
+                            Country
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face1.jpg" alt="image"/></span> Herman Beck
+                            </p>
+
+                        </td>
+                        <td>
+                            9462347896
+                        </td>
+                        <td>
+                            beck@gmail.com
+                        </td>
+                        <td>
+                            Sherry
+                        </td>
+                        <td>
+                            Angel
+                        </td>
+                        <td>
+                            UK
+                        </td>
+                    </tr>
+
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face2.jpg" alt="image"/></span> Messy Adam
+                            </p>
+
+                        </td>
+                        <td>
+                            7845632189
+                        </td>
+                        <td>
+                            messyadam@gmail.com
+                        </td>
+                        <td>
+                            Pradeep
+                        </td>
+                        <td>
+                            Hannah
+                        </td>
+                        <td>
+                            CANADA
+                        </td>
+                    </tr>
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face3.jpg" alt="image" /></span> John Richards
+                            </p>
+
+                        </td>
+                        <td>
+                            784563278932
+                        </td>
+                        <td>
+                            richardjohns@gmail.com
+                        </td>
+                        <td>
+                            Angel
+                        </td>
+                        <td>
+                            sam
+                        </td>
+                        <td>
+                            UK
+                        </td>
+                    </tr>
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face11.jpg" alt="image" /></span> Petter Maggik
+                            </p>
+
+                        </td>
+                        <td>
+                            75563278932
+                        </td>
+                        <td>
+                            petermaggik@gmail.com
+                        </td>
+                        <td>
+                            Rijo
+                        </td>
+                        <td>
+                            Binil
+                        </td>
+                        <td>
+                            UK
+                        </td>
+                    </tr>
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face9.jpg" alt="image" /></span> Edward Joseph
+                            </p>
+
+                        </td>
+                        <td>
+                            784578565
+                        </td>
+                        <td>
+                            edward@gmail.com
+                        </td>
+                        <td>
+                            Asna
+                        </td>
+                        <td>
+                            Susan
+                        </td>
+                        <td>
+                            CANADA
+                        </td>
+                    </tr>
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face7.jpg" alt="image" /></span> Alina Alice
+                            </p>
+
+                        </td>
+                        <td>
+                            4563218975
+                        </td>
+                        <td>
+                            johndoe@gmail.com
+                        </td>
+                        <td>
+                            Nithya Menon
+                        </td>
+                        <td>
+                            Arun vk
+                        </td>
+                        <td>
+                            CANADA
+                        </td>
+                    </tr>
+                    <tr data-href="{% url 'status_progress' %}">
+                        <td>
+
+                            <p><span><img src="static/images/faces/face14.jpg" alt="image" /></span>John Doe
+                            </p>
+
+                        </td>
+                        <td>
+                            456327896
+                        </td>
+                        <td>
+                            herytom45@gmail.com
+                        </td>
+                        <td>
+                            Hari
+                        </td>
+                        <td>
+                            Christo
+                        </td>
+                        <td>
+                            UK
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    $(document).ready(function() {
+        $('table tr').click(function() {
+            window.location = $(this).data('href');
+            return false;
+        });
+    });
+</script>
+{% endblock %}
