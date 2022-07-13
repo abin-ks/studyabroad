@@ -115,4 +115,8 @@ urlpatterns = [
     path('studentcouncilorcard',views.studentcouncilorcard,name='studentcouncilorcard'),
     path('previousstudcounc',views.previousstudcounc,name='previousstudcounc'),
     path('teamprofile',views.teamprofile,name='teamprofile'),
+    
+    
+    
+    path('index',views.index,name='index'),
 ]

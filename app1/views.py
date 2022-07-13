@@ -233,3 +233,7 @@ def load_studcounslerprofile(request):
     return render(request,'studcounsilerprofile.html')
 def currentdocoffprofile(request):
     return render(request,'currentdocoffprofile.html')
+
+
+def index(request):
+    return render(request,'Index.html')
